@@ -1,6 +1,9 @@
 import Button from "./UI/Button"
+import CartContext from "../store/CartContext"
+import { useContext } from "react"
 
 const MealItem = (props) => {
+    const { addItem } = useContext(CartContext);
     return (
         <li className="meal-item">
             <article>
@@ -11,7 +14,7 @@ const MealItem = (props) => {
                     <p className="meal-item-description">{props.description}</p>
                 </div>
                 <p className="meal-item-actions">
-                    <Button onClick={() => props.onAddToCart(props)}>Add to Cart</Button>
+                    <Button onClick={() => addItem(props)}>Add to Cart</Button>
                 </p>
             </article>
         </li>
