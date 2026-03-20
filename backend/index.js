@@ -16,10 +16,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/meals", async (req, res) => {
-  const meals = "[]" // data should be read from file
-  res.json(JSON.parse(meals));
+app.get('/meals', async (req, res) => {
+  try {
+    const meals = await fs.readFile('./data/meals.json', 'utf8');
+    res.json(JSON.parse(meals));
+  } catch (error) {
+    res.status(500).json({ message: 'Andmeid ei ole võimalik laadida.' });
+  }
 });
+
 
 app.use((req, res) => {
   if (req.method === "OPTIONS") {
