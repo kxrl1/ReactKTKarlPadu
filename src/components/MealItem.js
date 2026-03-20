@@ -1,3 +1,5 @@
+
+
 const MealItem = (props) => {
     return (
         <li className="meal-item">
@@ -9,7 +11,7 @@ const MealItem = (props) => {
                     <p className="meal-item-description">{props.description}</p>
                 </div>
                 <p className="meal-item-actions">
-                    <button className="button">Add to Cart</button>
+                    <button>Add to Cart</button>
                 </p>
             </article>
         </li>
